@@ -10,7 +10,3 @@
     $difference: nth($list, $floored + 2) - nth($list, $floored + 1);
     @return nth($list, $floored + 1) + ($difference * $decimal);
 }
-
-body {
-    width: percentile(0.5, 0% 150% 300%);
-}

@@ -1,0 +1,16 @@
+@function percentile($n, $list) {
+    $i: $n * (length($list) - 1);
+    $floored: floor($i);
+
+    @if ($floored == $i) {
+        @return nth($list, $i + 1);
+    }
+
+    $decimal: $i - $floored;
+    $difference: nth($list, $floored + 2) - nth($list, $floored + 1);
+    @return nth($list, $floored + 1) + ($difference * $decimal);
+}
+
+body {
+    width: percentile(0.5, 0% 150% 300%);
+}
